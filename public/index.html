@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agadir Delivery</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+</head>
+<body>
+    <header>
+        <h1><i class="fas fa-truck"></i> <span data-lang="title">Agadir Delivery</span></h1>
+        <nav>
+            <ul>
+                <li><a href="#" onclick="showPage('home')"><i class="fas fa-home"></i> <span data-lang="home">Home</span></a></li>
+                <li><a href="#" onclick="showPage('grocery')"><i class="fas fa-carrot"></i> <span data-lang="grocery">Grocery</span></a></li>
+                <li><a href="#" onclick="showPage('food')"><i class="fas fa-utensils"></i> <span data-lang="food">Food</span></a></li>
+                <li><a href="#" onclick="showPage('clothes')"><i class="fas fa-tshirt"></i> <span data-lang="clothes">Clothes</span></a></li>
+                <li><a href="#" onclick="showPage('cart')"><i class="fas fa-shopping-cart"></i> <span data-lang="cart">Cart</span> (<span id="cart-count">0</span>)</a></li>
+            </ul>
+            <select id="language-switcher" onchange="changeLanguage(this.value)">
+                <option value="en">English</option>
+                <option value="fr">Français</option>
+                <option value="ar">العربية</option>
+            </select>
+        </nav>
+    </header>
+
+    <main>
+        <div id="home" class="page active">
+            <h2 data-lang="home-title">Welcome to Agadir Delivery</h2>
+            <p data-lang="home-desc">Fast delivery of groceries, food, and clothes right to your door in Agadir!</p>
+        </div>
+
+        <div id="grocery" class="page">
+            <h2 data-lang="grocery">Grocery</h2>
+            <div class="products" id="grocery-products"></div>
+        </div>
+
+        <div id="food" class="page">
+            <h2 data-lang="food">Food</h2>
+            <div class="products" id="food-products"></div>
+        </div>
+
+        <div id="clothes" class="page">
+            <h2 data-lang="clothes">Clothes</h2>
+            <div class="products" id="clothes-products"></div>
+        </div>
+
+        <div id="cart" class="page">
+            <h2 data-lang="cart">Your Cart</h2>
+            <div id="cart-items"></div>
+            <p data-lang="total">Total: <span id="cart-total">0</span> DH</p>
+            <form id="order-form">
+                <input type="text" id="name" placeholder="Your Name" data-lang-placeholder="name" required>
+                <input type="tel" id="phone" placeholder="Phone Number" data-lang-placeholder="phone" required>
+                <input type="text" id="location" placeholder="Delivery Location" data-lang-placeholder="location" required>
+                <button type="button" id="location-btn" onclick="getUserLocation()" data-lang="use-location">Use My Location</button>
+                <button type="submit" data-lang="place-order">Place Order</button>
+            </form>
+        </div>
+    </main>
+
+    <div id="notification" class="notification"></div>
+    <div id="order-confirmation" class="order-confirmation"></div>
+
+    <footer>
+        <p data-lang="footer">© 2025 Agadir Delivery. All rights reserved.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
